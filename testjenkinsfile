@@ -28,29 +28,4 @@ pipeline{
         }
       }
     }
-}pipeline{
-    agent { docker { image 'node:14'
-           args '-u root:root'}}
-    stages{
-      stage('Dep install'){ 
-        steps{
-         //   sh 'npm cache clean'
-         //   sh 'sudo chown -R 995:993 "/.npm"'
-            sh 'npm install'
-        }
-      } 
-      stage('package'){
-        steps{
-            sh 'rm -rf *.tgz || echo ""'
-            sh 'npm pack'
-        }
-      } 
-      stage('upload artifact'){
-        steps{
-            sh 'curl -uadmin:AP8gcgmmset5jeYChTJYDN6XmDd -T \
-            *.tgz\
-            "http://54.90.10.114:8081/artifactory/nodejs/my-app-utc${BUILD_ID}.tgz"'
-        }
-      }
-    }
 }

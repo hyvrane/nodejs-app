@@ -14,5 +14,12 @@ pipeline{
             sh 'npm pack'
         }
       } 
+      stage('upload artifact'){
+        steps{
+            sh 'curl -uadmin:AP8gcgmmset5jeYChTJYDN6XmDd -T \
+            *.tgz\
+            "http://54.90.10.114:8081/artifactory/nodejs/my-app-utc${BUILD_ID}.tgz"'
+        }
+      }
     }
 }

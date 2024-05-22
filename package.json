@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "my-app-utc",
   "version": "1.3.0",
   "description": "Creating node application with login screen and testing it using Selenium",
   "main": "index.js",
